@@ -1,0 +1,12 @@
+{
+  "name": "shoes-commerce",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @shoes/api\" \"npm run dev --workspace @shoes/storefront\" \"npm run dev --workspace @shoes/admin\"",
+    "build": "npm run build --workspaces",
+    "db:seed": "npm run db:seed --workspace @shoes/api"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
