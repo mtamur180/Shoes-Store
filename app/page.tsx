@@ -1,12 +1,26 @@
-import { CategoryMenu, Hero, Incentives, IntroducingSection, Newsletter, ProductsSection } from "@/components";
+import Image from "next/image";
+import Link from "next/link";
+
+const featured = [
+  { name: "The Frontier", tone: "Espresso leather", price: "$248", className: "bg-[#d9c1a0]" },
+  { name: "The High Plains", tone: "Sun-worn tan", price: "$228", className: "bg-[#e6d7bd]" },
+  { name: "The Midnight", tone: "Black cherry", price: "$258", className: "bg-[#2a211e] text-white" },
+  { name: "The Desert Star", tone: "Saddle brown", price: "$238", className: "bg-[#b67c47]" },
+];
 
 export default function Home() {
   return (
-    <>
-    <Hero />
-    <IntroducingSection />
-    <CategoryMenu />
-    <ProductsSection />
-    </>
+    <main className="bg-[#f5f1e8] text-[#16120f]">
+      <section className="relative isolate overflow-hidden bg-black">
+        <Image src="/editorial/western-hero.png" alt="Brown leather boots in a studio" fill priority sizes="100vw" className="object-cover object-[68%_center]" />
+        <div className="relative mx-auto flex min-h-[650px] max-w-[1600px] items-center px-6 py-20 sm:px-10 lg:min-h-[720px] lg:px-20">
+          <div className="max-w-xl text-[#fffdf8]"><p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em]">The season&apos;s essential</p><h1 className="font-editorial text-5xl leading-[.91] sm:text-7xl lg:text-8xl">Made for the long way home.</h1><p className="mt-7 max-w-md text-base leading-7 text-stone-200">Hand-finished leather. Honest materials. Boots built to collect miles, not dust.</p><Link href="/shop" className="mt-9 inline-block bg-[#f7f2e7] px-7 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#16120f] transition hover:bg-white">Shop boots</Link></div>
+        </div>
+      </section>
+      <section className="border-y border-[#d9cfbf] px-6 py-8 sm:px-10 lg:px-20"><div className="mx-auto grid max-w-[1600px] gap-5 text-center text-xs font-semibold uppercase tracking-[0.16em] sm:grid-cols-3"><p>Free shipping on orders $150+</p><p>Built by hand, worn for years</p><p>Easy returns within 30 days</p></div></section>
+      <section className="px-6 py-20 sm:px-10 lg:px-20"><div className="mx-auto max-w-[1600px]"><div className="mb-10 flex items-end justify-between gap-6"><div><p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#86613e]">New arrivals</p><h2 className="font-editorial mt-3 text-4xl sm:text-6xl">Find your pair.</h2></div><Link href="/shop" className="border-b border-black pb-1 text-xs font-bold uppercase tracking-[0.16em]">Shop all</Link></div><div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">{featured.map((item, index) => <Link key={item.name} href="/shop" className="group"><div className={`relative aspect-[4/5] overflow-hidden ${item.className}`}><Image src="/editorial/western-hero.png" alt={item.name} fill sizes="(max-width: 1024px) 50vw, 25vw" className={`object-cover transition duration-500 group-hover:scale-105 ${index === 0 ? "object-[74%_50%]" : index === 1 ? "object-[90%_50%] scale-x-[-1]" : index === 2 ? "object-[82%_50%] saturate-50" : "object-[68%_50%] brightness-110 sepia-[.2]"}`} /></div><div className="pt-4"><h3 className="font-editorial text-xl">{item.name}</h3><p className="mt-1 text-sm text-stone-600">{item.tone}</p><p className="mt-2 text-sm font-semibold">{item.price}</p></div></Link>)}</div></div></section>
+      <section className="grid lg:grid-cols-2"><div className="relative min-h-[620px] overflow-hidden"><Image src="/editorial/ranch-boots.png" alt="Boots beside a truck at sunset" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-[55%_center]" /></div><div className="flex min-h-[520px] items-center bg-[#b1713f] px-8 py-16 sm:px-14 lg:px-20"><div className="max-w-lg text-[#1f1711]"><p className="text-[11px] font-bold uppercase tracking-[0.24em]">Built for the in-between</p><h2 className="font-editorial mt-5 text-5xl leading-[.95] sm:text-7xl">Wherever the road opens.</h2><p className="mt-7 max-w-md leading-7">From the first coffee at dawn to the last mile after dark, this is footwear that keeps its promise.</p><Link href="/shop" className="mt-9 inline-block border-b-2 border-[#1f1711] pb-2 text-xs font-bold uppercase tracking-[0.17em]">Explore the collection</Link></div></div></section>
+      <section className="px-6 py-24 sm:px-10 lg:px-20"><div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[.85fr_1.15fr]"><div><p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#86613e]">The STRIDE standard</p><h2 className="font-editorial mt-5 text-5xl leading-[.95] sm:text-7xl">A good boot gets better with every story.</h2></div><div className="grid gap-8 border-t border-[#cabda9] pt-8 sm:grid-cols-3"><div><p className="font-editorial text-3xl">01</p><h3 className="mt-4 text-sm font-bold uppercase tracking-[.14em]">Thoughtful craft</h3><p className="mt-3 text-sm leading-6 text-stone-600">Full-grain leathers selected for their character, not just their looks.</p></div><div><p className="font-editorial text-3xl">02</p><h3 className="mt-4 text-sm font-bold uppercase tracking-[.14em]">Easy to own</h3><p className="mt-3 text-sm leading-6 text-stone-600">Comfort from day one and care guides that make the long haul simple.</p></div><div><p className="font-editorial text-3xl">03</p><h3 className="mt-4 text-sm font-bold uppercase tracking-[.14em]">Made to roam</h3><p className="mt-3 text-sm leading-6 text-stone-600">Durable construction for ordinary days and the ones you remember.</p></div></div></div></section>
+    </main>
   );
 }
